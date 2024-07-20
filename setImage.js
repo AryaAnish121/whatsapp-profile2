@@ -20,7 +20,7 @@ const setImage = () => {
         }),
         restartOnAuthFail: true,
         puppeteer: {
-          headless: false,
+          args: ["--no-sandbox", "--disable-setuid-sandbox"],
         },
       });
 
