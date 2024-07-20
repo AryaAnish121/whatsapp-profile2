@@ -11,6 +11,7 @@ const { Client, RemoteAuth } = wwebjs;
 const setImage = () => {
   return new Promise(async (resolve, reject) => {
     mongoose.connect(process.env.MONGO_URI).then(() => {
+      console.log("connected to mongodb");
       let timeout;
       const store = new MongoStore({ mongoose: mongoose });
       const client = new Client({
@@ -33,6 +34,7 @@ const setImage = () => {
       });
 
       client.on("ready", async () => {
+        console.log("ready");
         const version = await client.getWWebVersion();
         console.log(`WWeb v${version}`);
 

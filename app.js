@@ -9,6 +9,7 @@ app.get("/", function (req, res) {
 });
 
 app.get("/set", async (req, res) => {
+  console.log("got a change pfp request");
   await setImage();
   res.send("done.");
 });
